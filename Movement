@@ -1,0 +1,25 @@
+using UnityEngine;
+using System.Collections;
+
+public class MoveForwardWithVelocity : MonoBehaviour {
+
+	public float maxSpeed;
+
+	void Update () {
+		
+		setPosition (getPosition ());
+		
+	}
+	
+	public Vector3 getPosition(){
+		Vector3 projectilePosition = transform.position;
+		Vector3 velocity = new Vector3 (0, maxSpeed * Time.deltaTime, 0);
+		projectilePosition += transform.rotation * velocity;
+		
+		return(projectilePosition);
+	}
+
+	public void setPosition(Vector3 aPos){
+		transform.position = aPos;
+	}
+}
